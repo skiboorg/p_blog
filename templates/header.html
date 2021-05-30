@@ -1,0 +1,69 @@
+{% load static %}
+ <header class="header">
+            <div class="header__left">
+                <nav class="nav">
+                    <ul class="nav__list">
+                        <li class="nav__item">
+                            <a class="nav__link" href="/">Главная</a>
+                        </li>
+                        <li class="nav__item">
+                            <a class="nav__link
+                            has-subnav" href="">Курсы</a>
+
+                            <ul class="subnav">
+                                <li>
+                                    <a class="subnav__link" href="{% url 'course' %}">Первый курс</a>
+                                </li>
+                                <li>
+                                    <a class="subnav__link" href="{% url 'course' %}">Второй курс</a>
+                                </li>
+                                <li>
+                                    <a class="subnav__link" href="{% url 'course' %}">Третий курс</a>
+                                </li>
+                                <li>
+                                    <a class="subnav__link" href="{% url 'course' %}">Четвертый курс</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav__item">
+                            <a class="nav__link" href="{% url 'about' %}">Обо мне</a>
+                        </li>
+                        <li class="nav__item">
+                            <a class="nav__link" href="{% url 'links' %}">Полезные ссылки</a>
+                        </li>
+                    </ul>
+                </nav>
+
+                <button class="burger" type="button" id="sidebarToggle">
+                    <span>Открыть навигацию</span>
+                </button>
+            </div>
+            <div class="header__right">
+                <nav class="nav">
+                    {% if request.user.is_authenticated %}
+                    <ul class="nav__list">
+                        <li  class="nav__item">
+                            <a class="nav__link" href="{% url 'profile' %}">Профиль</a>
+                        </li>
+                        <li class="nav__item">
+                            <a class="nav__link" href="{% url 'log_out' %}">Выйти</a>
+                        </li>
+                    </ul>
+                    {% else %}
+                        <ul class="nav__list">
+                        <li  class="nav__item">
+                            <a class="nav__link" href="{% url 'signin' %}">Вход</a>
+                        </li>
+                        <li class="nav__item">
+                            <a class="nav__link" href="{% url 'signup' %}">Регистрация</a>
+                        </li>
+                    </ul>
+                    {% endif %}
+                </nav>
+                <form class="search" action="{% url 'search' %}" method="get">
+                    <input class="search__input" type="text" placeholder="Поиск по блогу">
+                </form>
+            </div>
+        </header>
+
+

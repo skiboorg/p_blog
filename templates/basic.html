@@ -1,0 +1,125 @@
+{% load static %}
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/style.min.css' %}">
+
+    <!-- Useful meta tags -->
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="robots" content="index, follow">
+    <meta name="google" content="notranslate">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="description" content="">
+
+    <title>Home</title>
+</head>
+<body>
+<form id="dummy_form" class="not-visible">{% csrf_token %}</form>
+ <div class="page" id="page">
+
+        <!-- Header -->
+
+        {% include 'header.html' %}
+
+         <!-- Sidebar -->
+       {% include 'aside.html' %}
+
+          <!-- Main -->
+        <main class="main">
+           {% block content %}
+{% endblock %}
+
+        </main>
+    </div>
+ <div class="modal" id="story-modal">
+        <div class="modal__content modal__content--story">
+            <video class="modal__video" src="" poster="http://placehold.it/420x580"></video>
+        </div>
+    </div>
+    <div class="modal" id="contact-modal">
+        <div class="modal__content modal__content--contact">
+            <button class="modal__close" type="button">
+                <img src="{% static 'images/cancel.svg' %}" alt="Закрыть">
+            </button>
+            <form class="form" action="/" method="post">
+                <div class="form__group form__group--md">
+                    <input class="form__control" type="text" placeholder="Ваше имя">
+                    <span class="form__line"></span>
+                </div>
+
+                <div class="form__group form__group--md">
+                    <input class="form__control" type="email" placeholder="Ваша почта">
+                    <span class="form__line"></span>
+                </div>
+
+                <div class="form__group form__group--md">
+                    <textarea class="form__control form__control--textarea" placeholder="Текст сообщения"></textarea>
+                    <span class="form__line"></span>
+                </div>
+                <div class="form__footer">
+                    <div class="form__group form__group--md">
+                        <button class="btn btn--blue btn--rounded btn--sm" type="submit">Отправить</button>
+                    </div>
+                </div>
+            </form>
+            <ul class="modal__footer">
+                <li>
+                    e-mail: <a href="mailto:info@mywebsite.ru">info@mywebsite.ru</a>
+                </li>
+                <li>
+                    тел: <a href="tel:943-23285622">+943-232-856-22</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="modal">
+        <div class="modal__content">
+            <button class="modal__close" type="button">
+                <img src="{% static 'images/cancel.svg' %}" alt="Закрыть">
+            </button>
+            <ul class="social">
+                <li class="social__item">
+                    <a class="social__link" href="#">
+                        <img src="{% static 'images/share/facebook.svg' %}" alt="Instagram">
+                    </a>
+                </li>
+
+                <li class="social__item">
+                    <a class="social__link" href="#">
+                        <img src="{% static 'images/share/twitter.svg' %}" alt="Vkontakte">
+                    </a>
+                </li>
+
+                <li class="social__item">
+                    <a class="social__link" href="#">
+                        <img src="{% static 'images/share/vkontakte--2.svg' %}" alt="Pinterest">
+                    </a>
+                </li>
+
+                <li class="social__item">
+                    <a class="social__link" href="#">
+                        <img src="{% static 'images/share/copy.svg' %}" alt="Pinterest">
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+
+
+
+
+
+ <script src="{% static 'js/app.js' %}"></script>
+
+
+
+
+
+</body>
+
+</html>

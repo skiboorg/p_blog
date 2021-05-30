@@ -1,0 +1,84 @@
+{% extends 'basic.html' %}
+{% load static %}
+{% block content %}
+       <div class="container">
+
+                 <article class="post">
+                     <div class="post__actions">
+                         <a href="/">вернуться назад</a>
+                         <a href="#!">
+                             поделиться<img class="post__actions-icon" src="{% static 'images/share.svg' %}"
+                             alt="поделиться">
+                         </a>
+                     </div>
+                     <div class="post__header post__header--open">
+                        <h1 class="post__title post__title--open"><a href="#!">
+                             {{ post.name }}
+                         </a></h1>
+                        <ul class="post__data">
+                         <li class="post__data-item">
+                             <time data="{{ post.created_at | date }}">{{ post.created_at | date }}</time>
+                         </li>
+                            {% if post.tags %}
+                         <li class="post__data-item">
+                             <a href="#!"> {{ post.tags.name}}</a>
+                         </li>
+                            {% endif %}
+                     </ul>
+                     </div>
+                     <div class="post__content">
+                         <div class="post__text">
+                        {{ post.description | safe }}
+
+                         </div>
+                         <h3 class="post__subtitle">Обсуждение</h3>
+                             <form class="form" action="/" method="post">
+                                 <div class="form__group">
+                                     <textarea class="form__control form__control--textarea" data-autoresize name="comment-text"
+                                     placeholder="Текст комментария"></textarea>
+                                     <span class="form__line"></span>
+                                 </div>
+                                 <button class="btn btn--blue btn--rounded btn--sm" type="submit">Отправить</button>
+                             </form>
+                         <ul class="comments">
+                             <li class="comments__item">
+                                 <div class="comments__header">
+                                     <img class="comments__avatar" src="http://placehold.it/30" alt="">
+                                     <div class="comments__author">
+                                         <div class="comments__name">Дмитрий Валак</div>
+                                         <time class="comments__pubdate" datetime="2020-12-21">1 неделю назад</time>
+                                     </div>
+                                 </div>
+                                 <div class="comments__text">
+                                     Et vestibulum, posuere tortor lacinia sit.
+                                     Sagittis porttitor orci auctor in at tincidunt arcu egestas.
+                                     Fusce arcu sodales lacinia eu auctor nunc nam id.
+                                     Diam sit sed volutpat massa.
+                                     Egestas ornare vel volutpat.
+                                 </div>
+                                 <button class="comments__reply" type="button">ответить</button>
+                                 <ul class="comments">
+                                     <li class="comments__item">
+                                         <div class="comments__header">
+                                             <img class="comments__avatar" src="http://placehold.it/30" alt="">
+                                             <div class="comments__author">
+                                                 <div class="comments__name">Дмитрий Валак</div>
+                                                 <time class="comments__pubdate" datetime="2020-12-21">1 неделю назад</time>
+                                             </div>
+                                         </div>
+                                         <div class="comments__text">
+                                             Et vestibulum, posuere tortor lacinia sit.
+                                             Sagittis porttitor orci auctor in at tincidunt arcu egestas.
+                                             Fusce arcu sodales lacinia eu auctor nunc nam id.
+                                             Diam sit sed volutpat massa.
+                                             Egestas ornare vel volutpat.
+                                         </div>
+                                         <button class="comments__reply" type="button">ответить</button>
+                                     </li>
+                                 </ul>
+                             </li>
+                         </ul>
+                     </div>
+                 </article>
+            </div>
+{% endblock %}>

@@ -1,0 +1,97 @@
+{% load static %}
+<section class="map">
+    <div class="container map-inner">
+        <div class="shadow-box">
+            <div class="shadow-box-inner">
+                <h5>Номер телефона:</h5>
+                <p class="mb-10"><span>8 (982) 333-78-88</span></p>
+                <p class="mb-30"><span>8 (351) 215-55-07</span></p>
+                <h5>Email адрес:</h5>
+                <p class="mb-30"><span>ideahome@mail.ru</span></p>
+                <h5>Адреса магазинов:</h5>
+                <p>Челябинск, <span>ТК "Chelsi" Новоградский проспект, 64, центральный вход</span></p>
+                <p>Челябинск, <span>ТК "Chelsi" Троицкий тракт, 21, корпус 2, секция 16</span></p>
+
+
+            </div>
+        </div>
+    </div>
+</section>
+<footer class="footer">
+    <div class="container">
+        <div class="footer-top ">
+            <div class="footer-top-info">
+                <p>Все материалы данного сайта защищены авторским правом. Полное или частичное копирование запрещено. Информация предназначена для аудитории 14+</p>
+                <div class="footer-social">
+                    <ul>
+                        <li><a href="https://vk.com/public174205195" target="_blank" rel="nofollow"><span class="vk_icon"></span></a></li>
+
+                        <li><a href="https://www.instagram.com/ideahome74/" target="_blank" rel="nofollow"><span class="inst_icon"></span></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-top-list">
+                <p>Реквизиты в России:</p>
+                <ul>
+                    <li>ИП Золотарев Н.А.</li>
+                    <li>ИНН 745110404144</li>
+                    <li>ОГРНИП 307745128300037</li>
+                </ul>
+            </div>
+            <div class="footer-top-list ">
+                <p>Адрес офиса:</p>
+                <ul>
+                    <li>г. Челябинск</li>
+                    <li>ТК "Chelsi" Троицкий тракт, 21 </li>
+                    <li>корпус 2, секция 16</li>
+                </ul>
+            </div>
+
+            <div class="footer-top-phones text-right">
+                <p>+7 (351) 215-55-07</p>
+                <a @click.prevent="showModal = true" class="btn ">Перезвоните мне</a>
+            </div>
+
+
+
+
+
+        </div>
+
+    </div>
+</footer>
+
+<script type="text/x-template" id="modal-template">
+    <transition name="modal">
+        <div class="modal-mask">
+            <div class="modal-wrapper">
+                <div class="modal-container">
+                    <div class="modal-close" onclick="app.showModal=false"><span>&#10005;</span></div>
+                    {% include 'page/_cb-form.html' %}
+                </div>
+            </div>
+        </div>
+    </transition>
+</script>
+
+<script type="text/x-template" id="modalSuc-template">
+    <transition name="modal">
+        <div class="modal-mask">
+            <div class="modal-wrapper">
+                <div class="modal-container">
+                    <div class="modal-close" onclick="app.showModalSuc=false"><span>&#10005;</span></div>
+                    <div class="shadow-box">
+                        <div class="shadow-box-inner">
+                            <h5 class="mb-40">Спасибо,форма отправлена
+                            </h5>
+                            <p style="margin-bottom: 30px">Наж менеджер свяжется с вами</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </transition>
+</script>
+<modal v-if="showModal" @close="showModal = false"></modal>
+

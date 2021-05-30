@@ -1,0 +1,60 @@
+{% extends 'basic.html' %}
+{% load static %}
+{% block content %}
+      <div class="container">
+
+                 <h1 class="page__title">
+                     Полезные ссылки
+                 </h1>
+
+                 <article class="links">
+                     <div class="links__preview">
+                         <picture>
+                             <source srcset="https://placehold.it/575x150" media="(max-width: 575px)">
+                             <img src="{% static 'images/work-1.jpg' %}" alt="">
+                         </picture>
+                     </div>
+                     <div class="links__content">
+                         <h2 class="links__title">
+                             <a href="https://lms.ugktid.ru/" target="_blank">lms.ugktid.ru</a>
+                         </h2>
+                         <div class="links__description">
+                             <p>LMS Уфимского государственного колледжа технологии и дизайна.
+                                 LMS - это программное приложение для управления учебных курсов в рамках дистанционного обучения.</p>
+                         </div>
+                         <ul class="tags">
+                             <li class="tags__item">обучение</li>
+                             <li class="tags__item">видеоуроки</li>
+                             <li class="tags__item">экзамены</li>
+                         </ul>
+                         <div class="links__footer">
+                             <a class="btn btn--blue btn--rounded btn--sm" href="https://lms.ugktid.ru/" target="_blank">Перейти на сайт</a>
+                         </div>
+                     </div>
+                 </article>
+
+                 <article class="links">
+                     <div class="links__preview">
+                         <picture>
+                             <source srcset="https://placehold.it/575x150" media="(max-width: 575px)">
+                             <img src="{% static 'images/work-2.jpg' %}" alt="">
+                         </picture>
+                     </div>
+                     <div class="links__content">
+                         <h2 class="links__title">
+                             <a href="http://www.ugktid.ru/" target="_blank">ugktid.ru</a>
+                         </h2>
+                         <div class="links__description">
+                             <p>Сайт колледжа технологии и дизайна.</p>
+                         </div>
+                         <ul class="tags">
+                             <li class="tags__item">информация</li>
+                             <li class="tags__item">сайт колледжа</li>
+                         </ul>
+                         <div class="links__footer">
+                             <a class="btn btn--blue btn--rounded btn--sm" href="http://www.ugktid.ru/" target="_blank">Перейти на сайт</a>
+                         </div>
+                     </div>
+                 </article>
+            </div>
+{% endblock %}
